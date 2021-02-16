@@ -27,7 +27,6 @@ function App() {
       <div className="Cuisines">
         {
           state.cuisine.map((item, index) => {
-            console.log(index)
             if (index < 5) {
               return (
                 <div className="card" key={item}>
@@ -45,7 +44,6 @@ function App() {
       <div className="Cuisines">
         {
           state.cuisine.map((item, index) => {
-            console.log(index)
             if (index >= 5) {
               return (
                 <div className="card" key={item}>
