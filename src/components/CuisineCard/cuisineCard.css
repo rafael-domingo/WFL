@@ -1,0 +1,22 @@
+.components-cuisinecard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 333px;
+    box-shadow: 1px 4px 6px 0px rgba(0,0,0,0.5);
+    border-radius: 60px;
+    margin: 20px;
+}
+
+.components-cuisinecard img {
+    width: auto;
+    height: 142px;
+}
+
+.components-cuisinecard p {
+    font-size: 30px;
+    width: 100%;
+    font-family: 'futura';
+}
