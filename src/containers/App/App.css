@@ -5,18 +5,20 @@
   align-items: center;
   flex-wrap: wrap;
   color: white;
+  height: 100%;
 }
 
 .Cuisines {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .card {
   min-width: 20%;
+  height: 40%;
   display: flex;
   justify-content: center;
 }
