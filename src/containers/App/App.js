@@ -7,7 +7,7 @@ import Title from '../../elements/Title';
 import CuisineCard from '../../components/CuisineCard';
 
 function App() {
-  const [state, setState] = React.useState({
+  const [cuisine, setCuisine] = React.useState({
     cuisine: [
       'hamburger',
       'pizza',
@@ -21,12 +21,14 @@ function App() {
       'asian'
     ]
   })
+
+  
   
   return (
     <div className="App">
       <div className="Cuisines">
         {
-          state.cuisine.map((item, index) => {
+          cuisine.cuisine.map((item, index) => {
             if (index < 5) {
               return (
                 <div className="card" key={item}>
@@ -43,7 +45,7 @@ function App() {
       <Title />
       <div className="Cuisines">
         {
-          state.cuisine.map((item, index) => {
+          cuisine.cuisine.map((item, index) => {
             if (index >= 5) {
               return (
                 <div className="card" key={item}>
