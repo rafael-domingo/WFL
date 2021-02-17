@@ -3,8 +3,9 @@ import './App.css';
 
 import React, {useState} from 'react';
 
-import Title from '../../elements/Title';
-import CuisineCard from '../../components/CuisineCard';
+import { Switch, Route } from "react-router-dom";
+import CuisineList from '../CusineList';
+import RestaurantDetail from '../RestaurantDetail';
 
 function App() {
   const [cuisine, setCuisine] = React.useState({
@@ -26,39 +27,14 @@ function App() {
   
   return (
     <div className="App">
-      <div className="Cuisines">
-        {
-          cuisine.cuisine.map((item, index) => {
-            if (index < 5) {
-              return (
-                <div className="card" key={item}>
-                <CuisineCard cuisine={item}/>
-                </div>
-              )
-            } else {
-              return;
-            }
-            
-          })
-        }
-      </div>
-      <Title />
-      <div className="Cuisines">
-        {
-          cuisine.cuisine.map((item, index) => {
-            if (index >= 5) {
-              return (
-                <div className="card" key={item}>
-                <CuisineCard cuisine={item}/>
-                </div>
-              )
-            } else {
-              return;
-            }
-            
-          })
-        }
-      </div>
+      <Switch>
+            <Route exact path ='/' render={() => (
+              <CuisineList cuisine={cuisine} />
+            )}/>
+            <Route exact path ='/restaurant' render={() => (
+              <RestaurantDetail image={''} name={'smashburger'} address={'address'} phone={'225 585 4949'} rating={4.5} price={'$$'}/>
+            )} />
+        </Switch>
     </div>
   );
 }
