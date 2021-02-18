@@ -25,3 +25,5 @@ function CuisineList({cuisine}) {
 }
 
 export default CuisineList;
+
+

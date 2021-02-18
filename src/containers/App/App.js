@@ -6,6 +6,7 @@ import React, {useState} from 'react';
 import { Switch, Route } from "react-router-dom";
 import CuisineList from '../CusineList';
 import RestaurantDetail from '../RestaurantDetail';
+import Title from '../../elements/Title';
 
 function App() {
   const [cuisine, setCuisine] = React.useState({
@@ -118,6 +119,7 @@ function App() {
 
   return (
     <div className="App">
+      <Title />
       <Switch>
             <Route exact path ='/'>
               <CuisineList cuisine={cuisine} />
