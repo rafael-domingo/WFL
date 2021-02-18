@@ -6,11 +6,11 @@ import empty from '../../assets/business/dollar-empty.png';
 function Price({price}) {
     var priceArray = [];
     for (var i = 0; i < price.length; i++) {
-        priceArray.push(<img src={fill} style={{fill: 'white'}}/>);
+        priceArray.push(<img src={fill} style={{fill: 'white'}} key={i}/>);
     };
 
     for (var i = 4; i > price.length; i-- ) {
-        priceArray.push(<img src={empty} />);
+        priceArray.push(<img src={empty} key={i}/>);
     };
 
     return (

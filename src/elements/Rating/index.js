@@ -12,15 +12,15 @@ function Rating({rating}) {
     var emptyFill = 5 - Math.ceil(rating);
     var starArray = [];
     for (var i = 0; i < numFill ; i++) {
-        starArray.push(<img src={fill} />);
+        starArray.push(<img src={fill} key={i}/>);
     };
     
     if(halfFill) {
-        starArray.push(<img src={half} />);
+        starArray.push(<img src={half} key={'halfstar'}/>);
     };
 
     for (var i = 0; i < emptyFill; i++) {
-        starArray.push(<img src={empty} />);
+        starArray.push(<img src={empty} key={i+10}/>);
     }
 
     return (

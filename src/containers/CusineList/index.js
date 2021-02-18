@@ -2,6 +2,8 @@ import './cuisineList.css';
 
 import CuisineCard from '../../components/CuisineCard';
 
+import { useParams, Link } from "react-router-dom";
+
 function CuisineList({cuisine}) {
     return (
         <div>
@@ -10,7 +12,9 @@ function CuisineList({cuisine}) {
                 cuisine.cuisine.map((item, index) => {
                     return (
                         <div className="card" key={item}>
-                        <CuisineCard cuisine={item}/>
+                            <Link to={`/${item}`} style={{textDecoration: 'none', color: 'white'}}>
+                                <CuisineCard cuisine={item}/>
+                            </Link>
                         </div>
                     )
                 })
