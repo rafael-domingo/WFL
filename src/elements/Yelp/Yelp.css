@@ -1,0 +1,8 @@
+.elements-yelp {
+    transition: 0.3s ease;
+    border-radius: 50px;
+}
+
+.elements-yelp:hover {
+    background-color: #E0BE2F;
+}

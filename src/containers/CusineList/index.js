@@ -5,6 +5,7 @@ import CuisineCard from '../../components/CuisineCard';
 import { useParams, Link } from "react-router-dom";
 
 function CuisineList({cuisine}) {
+
     return (
         <div>
             <div className="Cuisines">
@@ -16,6 +17,8 @@ function CuisineList({cuisine}) {
                                 <CuisineCard cuisine={item}/>
                             </Link>
                         </div>
+                      
+                        
                     )
                 })
                 }

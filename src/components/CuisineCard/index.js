@@ -10,8 +10,15 @@ import tacos from '../../assets/cuisine/tacos.png';
 import vegan from '../../assets/cuisine/vegan.png';
 import vegetarian from '../../assets/cuisine/vegetarian.png';
 
+import { motion, AnimatePresence } from "framer-motion";
+
+
 function CuisineCard({cuisine}) {
-    
+    const variants = {
+        initial: { opacity: 0, x: '-100%'},
+        enter: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: '-100%', transition: {duration: 1.5}}
+    }
     switch (cuisine) {
         case 'asian':
             var image = asian;
@@ -48,10 +55,20 @@ function CuisineCard({cuisine}) {
     }
 
     return (
-        <div className="components-cuisinecard">
-            <img src={image}/>
-            <p>{cuisine}</p>
-        </div>
+        <AnimatePresence>
+            <motion.div
+            initial = "initial"
+            animate="enter"
+            transition={{ duration: 0.5 }}
+            exit="exit"
+            variants={variants}>
+            <div className="components-cuisinecard">
+                <img src={image}/>
+                <p>{cuisine}</p>
+            </div>
+            </motion.div>
+        </AnimatePresence>
+        
 
     )
 }

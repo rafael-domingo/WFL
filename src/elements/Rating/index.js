@@ -12,19 +12,19 @@ function Rating({rating}) {
     var emptyFill = 5 - Math.ceil(rating);
     var starArray = [];
     for (var i = 0; i < numFill ; i++) {
-        starArray.push(<img src={fill} key={i}/>);
+        starArray.push(<img src={fill} key={i} style={{width: '20%'}}/>);
     };
     
     if(halfFill) {
-        starArray.push(<img src={half} key={'halfstar'}/>);
+        starArray.push(<img src={half} key={'halfstar'} style={{width: '20%'}}/>);
     };
 
     for (var i = 0; i < emptyFill; i++) {
-        starArray.push(<img src={empty} key={i+10}/>);
+        starArray.push(<img src={empty} key={i+10} style={{width: '20%'}}/>);
     }
 
     return (
-        <div>
+        <div style={{width: '60%', margin: '20px'}}>
             {starArray}
         </div>
     )

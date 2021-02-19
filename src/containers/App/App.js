@@ -120,14 +120,15 @@ function App() {
   return (
     <div className="App">
       <Title />
-      <Switch>
-            <Route exact path ='/'>
-              <CuisineList cuisine={cuisine} />
-            </Route>
-            <Route exact path ='/:cuisine'>
-              <RestaurantDetail restaurant={restaurantList}/>
-            </Route>
-        </Switch>
+        <Switch>
+              <Route exact path ='/'>
+                <CuisineList cuisine={cuisine} />
+              </Route>
+              <Route exact path ='/:cuisine'>
+                <RestaurantDetail restaurant={restaurantList}/>
+              </Route>
+          </Switch>
+     
     </div>
   );
 }

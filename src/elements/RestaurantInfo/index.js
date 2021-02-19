@@ -3,10 +3,10 @@ import './restaurantInfo.css';
 function RestaurantInfo({name, address, phone}) {
 
     return (
-        <div className="elements-restaurantinfo">
-            <h1>{name}</h1>
-            <p>{address}</p>
-            <p>{phone}</p>
+        <div className="elements-restaurantinfo" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+            <h1 style={{fontSize: '5rem'}}>{name}</h1>
+            <p style={{fontSize: '2rem'}}>{address}</p>
+            <p style={{fontSize: '2rem'}}>{phone}</p>
         </div>
     )
 }
