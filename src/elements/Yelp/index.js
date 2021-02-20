@@ -14,11 +14,9 @@ function Yelp({link}) {
             backgroundColor: '#E0BE2F'
         }}
         style={{borderRadius: '50px', width: '80%'}}>
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}} className="elements-yelp">
+            <a href={link} target="blank" style={{textDecoration: 'none'}}>
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}} className="elements-yelp">
             <motion.div
-                whileHover={{
-                    rotate: [0, 360]
-                }}
                 style={{width: '20%', height: 'auto'}}
                 animate={{
                     opacity: isHovered ? 1 : 0,
@@ -30,9 +28,11 @@ function Yelp({link}) {
                 animate={{
                     opacity: isHovered ? 1: 0,
                     y: isHovered ? 0 : 100 }}>
-                <a href={link} target="blank" style={{textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>open in Yelp</a>
+                <p style={{textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>open in Yelp</p>
             </motion.div>
         </div>
+            </a>
+   
         </motion.div>
     
     

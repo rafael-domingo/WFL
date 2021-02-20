@@ -15,17 +15,13 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    z-index: 4;
     box-shadow: 1px 4px 6px 0px rgba(0,0,0,0.5);
     margin: 50px;
-    
-
 }
 
 .components-backbutton img {
-    width: 70%;
-    height: 70%;
-    /* margin: 10px; */
+    width: 50%;
+    height: 50%;
 }
 
 .components-restaurantcontainer {

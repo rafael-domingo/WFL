@@ -26,20 +26,21 @@ function RestaurantDetail({restaurant}) {
         return (
             <AnimatePresence>
                 <div className="components-restaurantcontainer">
+                    <Link to="/">
                         <motion.div
                         className="components-backbutton"
                         whileHover={{
-                            backgroundColor: '#E0BE2F'
+                            backgroundColor: '#E0BE2F',
+                            boxShadow: 'none',
+                            transition: '0.3s ease'
                         }}
                         animate={{
                             rotate: [180, 0],
                             opacity: [0, 1]
                         }}>
-                        <Link to="/">
                             <img src={back}/>
-                        </Link>
-                    </motion.div>
-              
+                        </motion.div>
+                    </Link>
 
                 <motion.div
                 initial = "initial"
