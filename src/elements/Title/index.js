@@ -14,10 +14,10 @@ function Title() {
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
     </defs>
-    <g id="Title" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD" transform="translate(-63.000000, -458.000000)" fill-rule="nonzero">
+    <g id="Title" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Desktop-HD" transform="translate(-63.000000, -458.000000)" fillRule="nonzero">
             <g id="WHAT’SFORLUNCH?">
-                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlinkHref="#path-1"></use>
+                <use fill="black" fillOpacity="1" filter="url(#filter-2)" xlinkHref="#path-1"></use>
                 <use fill="#FFFFFF" xlinkHref="#path-1"></use>
             </g>
         </g>

@@ -9,18 +9,23 @@
 }
 
 .components-backbutton {
-    width: 10%;
-    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     z-index: 4;
     box-shadow: 1px 4px 6px 0px rgba(0,0,0,0.5);
     margin: 50px;
+    
 
 }
 
 .components-backbutton img {
-    width: 100%;
-    height: auto;
+    width: 70%;
+    height: 70%;
+    /* margin: 10px; */
 }
 
 .components-restaurantcontainer {
