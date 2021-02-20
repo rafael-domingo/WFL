@@ -50,7 +50,7 @@ function RestaurantDetail({restaurant}) {
                 className="components-restaurantcontainer">
                     <div className="components-restaurantdetail">
                         <img src={image} style={{ width: '100%'}}/>
-                        <Rating rating={rating}/>
+                        <Rating rating={rating} />
                         <Price price={price} />
                         <RestaurantInfo name={name} address={address} phone={phone} />
                         <Yelp link={link} />
