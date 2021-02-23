@@ -1,5 +1,8 @@
 import './restaurantDetail.css';
 
+import React from 'react';
+import Axios from 'axios';
+
 import Rating from '../../elements/Rating';
 import Price from '../../elements/Price';
 import RestaurantInfo from '../../elements/RestaurantInfo';
@@ -7,21 +10,41 @@ import Yelp from '../../elements/Yelp';
 
 import back from '../../assets/business/back.png';
 
-import { useParams, Link } from "react-router-dom";
+import {YelpAPI} from '../../util/YelpAPI';
 
+import { useParams, Link } from "react-router-dom";
+import ReactLoading from 'react-loading';
 import { motion, AnimatePresence } from "framer-motion";
 
-// destructured syntax
+
 function RestaurantDetail({restaurant}) {
     const cuisine = useParams().cuisine;
+    const [detail, setDetail] = React.useState();
 
+    // Fetch API data on first render
+    React.useEffect(() => {
+        const restaurantInfo = async() => {
+            var response = await YelpAPI.search(cuisine);
+            console.log(response);
+            setDetail(response);
+        };    
+
+        const example = async() => {
+            const exResponse = await YelpAPI.new(cuisine);
+            console.log(exResponse);
+        }
+        example();
+        restaurantInfo();
+    }, [0])
+ 
+    
     const variants = {
         initial: { opacity: 0, x: '100%'},
         enter: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: '100%', transition: {duration: 1.5}}
     }
 
-    if (restaurant[cuisine]) {
+    if (detail) {
         const {name, address, price, phone, rating, image, link} = restaurant[cuisine];
         return (
             <AnimatePresence>
@@ -31,7 +54,7 @@ function RestaurantDetail({restaurant}) {
                         className="components-backbutton"
                         whileHover={{
                             backgroundColor: '#E0BE2F',
-                            boxShadow: 'none',
+                            boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.5);',
                             transition: '0.3s ease'
                         }}
                         animate={{
@@ -50,11 +73,11 @@ function RestaurantDetail({restaurant}) {
                 variants={variants}
                 className="components-restaurantcontainer">
                     <div className="components-restaurantdetail">
-                        <img src={image} style={{ width: '100%'}}/>
-                        <Rating rating={rating} />
-                        <Price price={price} />
-                        <RestaurantInfo name={name} address={address} phone={phone} />
-                        <Yelp link={link} />
+                        <img src={detail.image_url} style={{ width: '100%'}}/>
+                        <Rating rating={detail.rating} />
+                        <Price price={detail.price} />
+                        <RestaurantInfo name={detail.name} address={address} phone={detail.phone} />
+                        <Yelp link={detail.url} />
                     </div>
                 </motion.div>
                 </div>
@@ -63,8 +86,8 @@ function RestaurantDetail({restaurant}) {
         )
     } else {
         return (
-            <div>
-                Couldn't find restaurant
+            <div style={{width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <ReactLoading type={'spin'} height={'10%'} width={'10%'} />
             </div>
         )
     }

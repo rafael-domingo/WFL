@@ -2,7 +2,7 @@ import logo from '../../assets/logo.svg';
 import './App.css';
 
 import React, {useState} from 'react';
-
+import Axios from 'axios';
 import { Switch, Route } from "react-router-dom";
 import CuisineList from '../CusineList';
 import RestaurantDetail from '../RestaurantDetail';
@@ -115,6 +115,22 @@ function App() {
           link: 'https://www.yelp.com/biz/soji-modern-asian-baton-rouge?osq=asian'
         }
     })
+    
+    // cuisine.cuisine.forEach(element => {
+    //   setTimeout(() => {
+    //     Axios({
+    //       method: "GET",
+    //       url: `http://localhost:5000/api/${element}`
+    //     }).then(res => {
+    //       console.log(element);
+    //       console.log(res);
+    //     }).catch(err => {
+    //       console.log(err)
+    //     });
+    //   }, 1000);
+    
+    // });
+    
     
 
   return (
