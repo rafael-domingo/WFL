@@ -20,20 +20,31 @@ import { motion, AnimatePresence } from "framer-motion";
 function RestaurantDetail({restaurant}) {
     const cuisine = useParams().cuisine;
     const [detail, setDetail] = React.useState();
+    const [cheap, setCheap] = React.useState();
+    const [high, setHigh] = React.useState();
 
     // Fetch API data on first render
     React.useEffect(() => {
         const restaurantInfo = async() => {
-            var response = await YelpAPI.search(cuisine);
+            var response = await YelpAPI.search(cuisine, 'review_count');
             console.log(response);
             setDetail(response);
         };    
 
-        const example = async() => {
-            const exResponse = await YelpAPI.new(cuisine);
-            console.log(exResponse);
+        const high = async() => {
+            const highResponse = await YelpAPI.cheap(cuisine, 'rating');
+            console.log(highResponse);
+            setHigh(highResponse);
         }
-        example();
+
+        const cheap = async() => {
+            const cheapResponse = await YelpAPI.cheap(cuisine, 'best_match');
+            console.log(cheapResponse);
+            setCheap(cheapResponse);
+
+        }
+        cheap();
+        high();
         restaurantInfo();
     }, [0])
  
@@ -44,7 +55,7 @@ function RestaurantDetail({restaurant}) {
         exit: { opacity: 0, x: '100%', transition: {duration: 1.5}}
     }
 
-    if (detail) {
+    if (detail && cheap && high) {
         const {name, address, price, phone, rating, image, link} = restaurant[cuisine];
         return (
             <AnimatePresence>
@@ -73,11 +84,44 @@ function RestaurantDetail({restaurant}) {
                 variants={variants}
                 className="components-restaurantcontainer">
                     <div className="components-restaurantdetail">
+                        <p>Something popular</p>
                         <img src={detail.image_url} style={{ width: '100%'}}/>
                         <Rating rating={detail.rating} />
                         <Price price={detail.price} />
                         <RestaurantInfo name={detail.name} address={address} phone={detail.phone} />
                         <Yelp link={detail.url} />
+                    </div>
+                </motion.div>
+                 <motion.div
+                initial = "initial"
+                animate="enter"
+                transition={{ duration: 0.5 }}
+                exit="exit"
+                variants={variants}
+                className="components-restaurantcontainer">
+                    <div className="components-restaurantdetail">
+                        <p>Something cheap</p>
+                        <img src={cheap.image_url} style={{ width: '100%'}}/>
+                        <Rating rating={cheap.rating} />
+                        <Price price={cheap.price} />
+                        <RestaurantInfo name={cheap.name} address={address} phone={cheap.phone} />
+                        <Yelp link={cheap.url} />
+                    </div>
+                </motion.div>
+                <motion.div
+                initial = "initial"
+                animate="enter"
+                transition={{ duration: 0.5 }}
+                exit="exit"
+                variants={variants}
+                className="components-restaurantcontainer">
+                    <div className="components-restaurantdetail">
+                        <p>Something good</p>
+                        <img src={high.image_url} style={{ width: '100%'}}/>
+                        <Rating rating={high.rating} />
+                        <Price price={high.price} />
+                        <RestaurantInfo name={high.name} address={address} phone={high.phone} />
+                        <Yelp link={high.url} />
                     </div>
                 </motion.div>
                 </div>

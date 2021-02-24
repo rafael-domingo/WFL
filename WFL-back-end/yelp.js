@@ -11,7 +11,8 @@ router.get('/:cuisine', async (req, res) => {
             term: req.params.cuisine,
             location: 'baton rouge, la',
             limit: '20',
-            sort_by: 'rating'
+            sort_by: 'rating',
+            categories: 'restaurants, All'
         })
 
         // Generate random number to select a random restaurant from list
@@ -23,19 +24,55 @@ router.get('/:cuisine', async (req, res) => {
     }
 })
 
-router.get('/:cuisine/:new', async (req, res) => {
+
+router.get('/:cuisine/:sort/cheap', async (req, res) => {
     try {
-        console.log(req.params.cuisine);
-        console.log(req.params.new);
-        const hotAndNew = await client.search({
-            term: 'greek',
+        const business = await client.search({
+            term: req.params.cuisine,
             location: 'baton rouge, la',
-            attributes: "hot_and_new"
+            limit: '20',
+            sort_by: req.params.sort,
+            price: 1,
+            categories: 'restaurants, All'
+        })
+        res.json(business.jsonBody.businesses[0]);
+    } catch(err) {
+        res.json({message: err})
+        console.log(err);
+    }
+})
+
+router.get('/:cuisine/:sort', async (req, res) => {
+    try {
+        const business = await client.search({
+            term: req.params.cuisine,
+            location: 'baton rouge, la',
+            limit: '20',
+            sort_by: req.params.sort
+        })
+         // Generate random number to select a random restaurant from list
+         const index = Math.floor(Math.random() * Math.floor(20));
+        
+        res.json(business.jsonBody.businesses[index]);
+    } catch(err) {
+        res.json({messsage: err})
+        console.log(err);
+    }
+})
+
+
+router.get('/new', async (req, res) => {
+    try {
+        const hotAndNew = await client.search({
+            term: '',
+            location: 'baton rouge, la',
+            attributes: "hot_and_new",
+            categories: 'restaurants, All'
         })
         // Generate random number to select a random restaurant from list
-        const index = Math.floor(Math.random() * Math.floor(20));
-        console.log(hotAndNew.jsonBody.businesses[index]);
-        res.json(hotAndNew.jsonBody.businesses[index]);
+        // const index = Math.floor(Math.random() * Math.floor(20));
+        console.log(hotAndNew.jsonBody.businesses[0]);
+        res.json(hotAndNew.jsonBody.businesses[0]);
     } catch(err) {
         res.json({message: err});
     }

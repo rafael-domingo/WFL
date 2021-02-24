@@ -1,20 +1,28 @@
 import Axios from 'axios';
 
 export const YelpAPI = {
-    search(cuisine) {
-      return fetch(`http://localhost:5000/api/${cuisine}`).then(response => {
+    search(cuisine, sort) {
+      return fetch(`http://localhost:5000/api/${cuisine}/${sort}`).then(response => {
         console.log(response);
         return response.json();
       })
- 
     },
 
-    new(cuisine) {
-      return fetch(`http://localhost:5000/api/${cuisine}/new`).then(response => {
+    new() {
+      return fetch(`http://localhost:5000/api/new`).then(response => {
+        console.log(response);
+        return response.json();
+      }).catch(err => {
+        console.log(err);
+      })
+    },
+
+    cheap(cuisine, sort) {
+      return fetch(`http://localhost:5000/api/${cuisine}/${sort}/cheap`).then(response => {
         console.log(response);
         return response.json();
       }).catch(err => {
         console.log(err);
       })
     }
-}
+} 
