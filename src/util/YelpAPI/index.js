@@ -1,5 +1,3 @@
-import Axios from 'axios';
-
 export const YelpAPI = {
     search(cuisine, sort) {
       return fetch(`http://localhost:5000/api/${cuisine}/${sort}`).then(response => {

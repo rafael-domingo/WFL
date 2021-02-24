@@ -1,7 +1,6 @@
 import './restaurantDetail.css';
 
 import React from 'react';
-import Axios from 'axios';
 
 import Rating from '../../elements/Rating';
 import Price from '../../elements/Price';
@@ -75,55 +74,57 @@ function RestaurantDetail({restaurant}) {
                             <img src={back}/>
                         </motion.div>
                     </Link>
-
-                <motion.div
-                initial = "initial"
-                animate="enter"
-                transition={{ duration: 0.5 }}
-                exit="exit"
-                variants={variants}
-                className="components-restaurantcontainer">
-                    <div className="components-restaurantdetail">
-                        <p>Something popular</p>
-                        <img src={detail.image_url} style={{ width: '100%'}}/>
-                        <Rating rating={detail.rating} />
-                        <Price price={detail.price} />
-                        <RestaurantInfo name={detail.name} address={address} phone={detail.phone} />
-                        <Yelp link={detail.url} />
-                    </div>
-                </motion.div>
-                 <motion.div
-                initial = "initial"
-                animate="enter"
-                transition={{ duration: 0.5 }}
-                exit="exit"
-                variants={variants}
-                className="components-restaurantcontainer">
-                    <div className="components-restaurantdetail">
-                        <p>Something cheap</p>
-                        <img src={cheap.image_url} style={{ width: '100%'}}/>
-                        <Rating rating={cheap.rating} />
-                        <Price price={cheap.price} />
-                        <RestaurantInfo name={cheap.name} address={address} phone={cheap.phone} />
-                        <Yelp link={cheap.url} />
-                    </div>
-                </motion.div>
-                <motion.div
-                initial = "initial"
-                animate="enter"
-                transition={{ duration: 0.5 }}
-                exit="exit"
-                variants={variants}
-                className="components-restaurantcontainer">
-                    <div className="components-restaurantdetail">
-                        <p>Something good</p>
-                        <img src={high.image_url} style={{ width: '100%'}}/>
-                        <Rating rating={high.rating} />
-                        <Price price={high.price} />
-                        <RestaurantInfo name={high.name} address={address} phone={high.phone} />
-                        <Yelp link={high.url} />
-                    </div>
-                </motion.div>
+                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+                        <motion.div
+                            initial = "initial"
+                            animate="enter"
+                            transition={{ duration: 0.5 }}
+                            exit="exit"
+                            variants={variants}
+                            className="components-motion">
+                                <div className="components-restaurantdetail">
+                                    <p>Something popular</p>
+                                    <img src={detail.image_url} style={{ width: '100%'}}/>
+                                    <Rating rating={detail.rating} />
+                                    <Price price={detail.price} />
+                                    <RestaurantInfo name={detail.name} address={address} phone={detail.phone} />
+                                    <Yelp link={detail.url} />
+                                </div>
+                            </motion.div>
+                            <motion.div
+                            initial = "initial"
+                            animate="enter"
+                            transition={{ duration: 0.5 }}
+                            exit="exit"
+                            variants={variants}
+                            className="components-motion">
+                                <div className="components-restaurantdetail">
+                                    <p>Something cheap</p>
+                                    <img src={cheap.image_url} style={{ width: '100%'}}/>
+                                    <Rating rating={cheap.rating} />
+                                    <Price price={cheap.price} />
+                                    <RestaurantInfo name={cheap.name} address={address} phone={cheap.phone} />
+                                    <Yelp link={cheap.url} />
+                                </div>
+                            </motion.div>
+                            <motion.div
+                            initial = "initial"
+                            animate="enter"
+                            transition={{ duration: 0.5 }}
+                            exit="exit"
+                            variants={variants}
+                            className="components-motion">
+                                <div className="components-restaurantdetail">
+                                    <p>Something good</p>
+                                    <img src={high.image_url} style={{ width: '100%'}}/>
+                                    <Rating rating={high.rating} />
+                                    <Price price={high.price} />
+                                    <RestaurantInfo name={high.name} address={address} phone={high.phone} />
+                                    <Yelp link={high.url} />
+                                </div>
+                            </motion.div>
+                        </div>
+               
                 </div>
                 
             </AnimatePresence>
