@@ -6,11 +6,12 @@ import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 function Yelp({link}) {
     const [isHovered, setHovered] = useState(true);
-    const { scrollYProgress } = useViewportScroll();
-    const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-    useEffect(() => yRange.onChange((v) => setHovered(v >= 0.9)), [yRange]);
+    // const { scrollYProgress } = useViewportScroll();
+    // const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+    // useEffect(() => yRange.onChange((v) => setHovered(v >= 0.9)), [yRange]);
     return (
-        <motion.div   whileHover={{
+        <motion.div   
+            whileHover={{
             backgroundColor: '#E0BE2F'
         }}
         style={{borderRadius: '50px', width: '80%'}}>

@@ -1,13 +1,13 @@
 export const YelpAPI = {
-    search(cuisine, sort) {
-      return fetch(`http://localhost:5000/api/${cuisine}/${sort}`).then(response => {
+    search(cuisine, sort, location) {
+      return fetch(`http://localhost:5000/api/${cuisine}/${sort}/${location.latitude}/${location.longitude}`).then(response => {
         console.log(response);
         return response.json();
       })
     },
 
-    new() {
-      return fetch(`http://localhost:5000/api/new`).then(response => {
+    new(location) {
+      return fetch(`http://localhost:5000/api/new/${location.latitude}/${location.longitude}`).then(response => {
         console.log(response);
         return response.json();
       }).catch(err => {
@@ -15,8 +15,8 @@ export const YelpAPI = {
       })
     },
 
-    cheap(cuisine, sort) {
-      return fetch(`http://localhost:5000/api/${cuisine}/${sort}/cheap`).then(response => {
+    cheap(cuisine, sort, location) {
+      return fetch(`http://localhost:5000/api/${cuisine}/${sort}/cheap/${location.latitude}/${location.longitude}`).then(response => {
         console.log(response);
         return response.json();
       }).catch(err => {

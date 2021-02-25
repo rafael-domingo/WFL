@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: 50px;
+    height: 100%;
     
 }
 
@@ -27,8 +28,9 @@
 .components-motion {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    
 }
 
 .components-restaurantdetail {
@@ -41,4 +43,5 @@
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+    height: 100%;
 }

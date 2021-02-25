@@ -1,0 +1,19 @@
+.elements-description {
+    background-color: #E0BE2F;
+    color: #6d5b12;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.elements-description img {
+    width: 20%;
+    height: auto;
+}

@@ -6,7 +6,8 @@ import Axios from 'axios';
 import { Switch, Route } from "react-router-dom";
 import CuisineList from '../CusineList';
 import RestaurantDetail from '../RestaurantDetail';
-import Title from '../../elements/Title';
+import Header from '../Header';
+import ReactLoading from 'react-loading';
 
 function App() {
   const [cuisine, setCuisine] = React.useState({
@@ -115,38 +116,49 @@ function App() {
           link: 'https://www.yelp.com/biz/soji-modern-asian-baton-rouge?osq=asian'
         }
     })
-    
-    // cuisine.cuisine.forEach(element => {
-    //   setTimeout(() => {
-    //     Axios({
-    //       method: "GET",
-    //       url: `http://localhost:5000/api/${element}`
-    //     }).then(res => {
-    //       console.log(element);
-    //       console.log(res);
-    //     }).catch(err => {
-    //       console.log(err)
-    //     });
-    //   }, 1000);
-    
-    // });
-    
-    
+    const [location, setLocation] = React.useState();
 
-  return (
-    <div className="App">
-      <Title />
-        <Switch>
-              <Route exact path ='/'>
-                <CuisineList cuisine={cuisine} />
-              </Route>
-              <Route exact path ='/:cuisine'>
-                <RestaurantDetail restaurant={restaurantList}/>
-              </Route>
-          </Switch>
-     
-    </div>
-  );
+    React.useEffect(() => {
+   
+    }, [location])
+
+    if (location) {
+      return (
+        <div className="App">
+            <Switch>
+                  <Route exact path ='/'>
+                    <CuisineList cuisine={cuisine} />
+                  </Route>
+                  <Route exact path ='/:cuisine'>
+                    <RestaurantDetail restaurant={restaurantList} location={location}/>
+                  </Route>
+              </Switch>
+         
+        </div>
+      )
+    } else {
+      console.log('waiting')
+      setTimeout(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          if (position) {
+            setLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            })
+          }
+        })
+      }, 500);
+      return(
+        <div className="App">
+          <Header text="What's For Lunch?"/>
+          <h1 style={{color: 'white', width: '100%', textAlign: 'center'}}>Getting your location</h1>
+          <ReactLoading type={'spin'} height={'10%'} width={'10%'} />
+        </div>
+      )
+    
+   
+
+    };
 }
 
 export default App;

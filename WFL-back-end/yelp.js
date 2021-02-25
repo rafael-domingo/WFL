@@ -25,11 +25,12 @@ router.get('/:cuisine', async (req, res) => {
 })
 
 
-router.get('/:cuisine/:sort/cheap', async (req, res) => {
+router.get('/:cuisine/:sort/cheap/:latitude/:longitude', async (req, res) => {
     try {
         const business = await client.search({
             term: req.params.cuisine,
-            location: 'baton rouge, la',
+            latitude: req.params.latitude,
+            longitude: req.params.longitude,
             limit: '20',
             sort_by: req.params.sort,
             price: 1,
@@ -42,11 +43,12 @@ router.get('/:cuisine/:sort/cheap', async (req, res) => {
     }
 })
 
-router.get('/:cuisine/:sort', async (req, res) => {
+router.get('/:cuisine/:sort/:latitude/:longitude', async (req, res) => {
     try {
         const business = await client.search({
             term: req.params.cuisine,
-            location: 'baton rouge, la',
+            latitude: req.params.latitude,
+            longitude: req.params.longitude,
             limit: '20',
             sort_by: req.params.sort
         })
@@ -61,11 +63,12 @@ router.get('/:cuisine/:sort', async (req, res) => {
 })
 
 
-router.get('/new', async (req, res) => {
+router.get('/new/:latitude/:longitude', async (req, res) => {
     try {
         const hotAndNew = await client.search({
             term: '',
-            location: 'baton rouge, la',
+            latitude: req.params.latitude,
+            longitude: req.params.longitude,
             attributes: "hot_and_new",
             categories: 'restaurants, All'
         })
