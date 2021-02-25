@@ -57,7 +57,6 @@ function RestaurantDetail({restaurant, location}) {
     }
 
     if (detail && cheap && high) {
-        const {name, address, price, phone, rating, image, link} = restaurant[cuisine];
         return (
             <AnimatePresence>
                 <div className="components-restaurantcontainer">
