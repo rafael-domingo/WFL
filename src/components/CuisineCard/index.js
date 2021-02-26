@@ -26,10 +26,10 @@ function CuisineCard({cuisine}) {
         case 'breakfast':
             var image = breakfast;
             break;
-        case 'fastfood':
+        case 'fries':
             var image = fastfood;
             break;
-        case 'friedchicken':
+        case 'chicken':
             var image = friedchicken;
             break;
         case 'hamburger':

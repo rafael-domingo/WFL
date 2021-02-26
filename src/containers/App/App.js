@@ -14,10 +14,10 @@ function App() {
     cuisine: [
       'hamburger',
       'pizza',
-      'friedchicken',
+      'chicken',
       'vegetarian',
       'vegan',
-      'fastfood',
+      'fries',
       'seafood',
       'breakfast',
       'tacos',
