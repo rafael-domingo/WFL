@@ -12,7 +12,7 @@ function Header({text, location}) {
         return(           
             <div style={{width: '100%'}}>
                 <Title text={text}/> 
-                <p>{location.name}</p>              
+                <p style={{fontSize: '2em'}}>{location.name}</p>              
             </div>
 
             
@@ -21,7 +21,7 @@ function Header({text, location}) {
         return(           
             <div style={{width: '100%'}}>
                 <Title text={text}/> 
-                <p>Your location</p>              
+                <p style={{fontSize: '2em'}}>Your Current location</p>              
             </div>
 
             

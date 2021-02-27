@@ -58,9 +58,6 @@ function App() {
           <div className="App">
             <Header text="What's For Lunch?"/>
             <h1 style={{color: 'white', width: '100%', textAlign: 'center'}}>Hmm, seems like I can't get your location.</h1>         
-            
-        
-          
           </div>
         <div className="container-form">
           <div className="form">
@@ -79,7 +76,6 @@ function App() {
         <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', width: '100%'}}>
         <div className="App">
           <Header text="What's For Lunch?"/>
-          <h1 style={{color: 'white', width: '100%', textAlign: 'center'}}>Hmm, seems like I can't get your location.</h1>         
         </div>
       <div className="container-form">
         <div className="form">
