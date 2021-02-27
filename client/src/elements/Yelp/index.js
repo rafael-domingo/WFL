@@ -29,7 +29,7 @@ function Yelp({link}) {
                 animate={{
                     opacity: isHovered ? 1: 0,
                     y: isHovered ? 0 : 100 }}>
-                <p style={{textDecoration: 'none', color: 'white', fontWeight: 'bold'}}>open in Yelp</p>
+                <p style={{textDecoration: 'none', color: 'white', fontWeight: 'bold', fontSize: '2em'}}>open in Yelp</p>
             </motion.div>
         </div>
             </a>

@@ -4,6 +4,7 @@
 const express = require('express');
 const app = express();
 const yelpAPI = require('./yelp');
+const yelpSearch = require('./yelpSearch');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const path = require('path')
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 
 // Middleware
 app.use('/api', yelpAPI);
+app.use('/search', yelpSearch);
 
 // Anything that doesn't match the above, send back index.html
 app.get('*', (req, res) => {

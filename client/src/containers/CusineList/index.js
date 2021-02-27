@@ -5,12 +5,12 @@ import CuisineCard from '../../components/CuisineCard';
 
 import { useParams, Link } from "react-router-dom";
 
-function CuisineList({cuisine}) {
+function CuisineList({cuisine, location}) {
 
     return (
         <div>
             <div className="Cuisines">
-            <Header text="What's For Lunch?"/>
+            <Header text="What's For Lunch?" location={location}/>
                 {
                 cuisine.cuisine.map((item, index) => {
                     return (

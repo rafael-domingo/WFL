@@ -17,7 +17,7 @@
 }
 
 .components-cuisinecard p {
-    font-size: 30px;
+    font-size: 2em;
     width: 100%;
     font-family: 'futura';
 }
@@ -26,3 +26,9 @@
     box-shadow: none;
     background-color: #E0BE2F;
 }
+
+@media only screen and (max-width: 900px) {
+    .components-cuisinecard {
+      width: 80%;
+    }
+  }

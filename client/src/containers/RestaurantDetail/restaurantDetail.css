@@ -13,8 +13,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 5em;
+    height: 5em;
     border-radius: 50%;
     box-shadow: 1px 4px 6px 0px rgba(0,0,0,0.5);
     margin: 50px;
@@ -45,3 +45,14 @@
     flex-wrap: wrap;
     height: 100%;
 }
+
+@media only screen and (max-width: 900px) {
+    .components-restaurantdetail {
+      width: 80%;
+      margin: 0px;
+    }
+    .components-backbutton {
+        width: 10em;
+        height: 10em;
+    }
+  }

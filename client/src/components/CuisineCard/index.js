@@ -64,7 +64,7 @@ function CuisineCard({cuisine}) {
             variants={variants}>
             <div className="components-cuisinecard">
                 <img src={image}/>
-                <p>{cuisine}</p>
+                <p>{cuisine}</p>    
             </div>
             </motion.div>
         </AnimatePresence>

@@ -2,20 +2,33 @@ import React from 'react';
 import './Header.css';
 import Title from '../../elements/Title';
 
-function Header({text}) {
+function Header({text, location}) {
     const [show, setShow] = React.useState(true);
-    if (show) {
+    if (!location) {
+        return(
+            <Title text={text}/>
+        )
+    } else if (location.name) {
         return(           
-            <Title text={text}/>               
+            <div style={{width: '100%'}}>
+                <Title text={text}/> 
+                <p>{location.name}</p>              
+            </div>
+
+            
+        )
+    } else if (location.latitude) {
+        return(           
+            <div style={{width: '100%'}}>
+                <Title text={text}/> 
+                <p>Your location</p>              
+            </div>
+
+            
         )
     } else {
         return(
-            
-            <div>
-                <form>
-                    <input placeholder="Search for a city"></input>                    
-                </form>
-            </div>
+            <Title text={text}/>
         )
     }
 }

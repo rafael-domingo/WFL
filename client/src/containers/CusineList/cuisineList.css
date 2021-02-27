@@ -13,3 +13,13 @@
     justify-content: center;
   }
 
+@media only screen and (max-width: 900px) {
+  .Cuisines {
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    flex-wrap: wrap;
+    width: 50%;
+  }
+}
