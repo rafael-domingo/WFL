@@ -6,7 +6,7 @@ export const YelpAPI = {
           return response.json();
         })
       } else {
-        return fetch(`http://localhost:5000/search/${cuisine}/${sort}/${location.name}`).then(response => {
+        return fetch(`/search/${cuisine}/${sort}/${location.name}`).then(response => {
           console.log(response);
           return response.json();
         })
@@ -23,7 +23,7 @@ export const YelpAPI = {
           console.log(err);
         })
       } else {
-        return fetch(`http://localhost:5000/search/new/${location.name}`).then(response => {
+        return fetch(`/search/new/${location.name}`).then(response => {
           console.log(response);
           return response.json();
         }).catch(err => {
@@ -42,7 +42,7 @@ export const YelpAPI = {
           console.log(err);
         })
       } else {
-        return fetch(`http://localhost:5000/search/${cuisine}/${sort}/cheap/${location.name}`).then(response => {
+        return fetch(`/search/${cuisine}/${sort}/cheap/${location.name}`).then(response => {
           console.log(response);
           return response.json();
         }).catch(err => {
