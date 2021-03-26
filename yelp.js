@@ -1,5 +1,5 @@
 const yelp = require('yelp-fusion');
-const client = yelp.client('4Jhi3AU6L1VvACc5PFFnwPgEAneIZHe8j_gjZ-RKQPAw8mM5NZWoRUunI691Tzn6jqt4Wkyq1o4q6o9dJS2gcRQnuXjDy99yNx3Uz3nUcGlZHPMgJjSIjWNxxIksYHYx');
+const client = yelp.client('INSERT API KEY HERE');
 
 const express = require('express');
 const router = express.Router();
